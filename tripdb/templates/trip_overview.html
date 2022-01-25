@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RTB - Reisen</title>
+</head>
+<body>
+    <h1>Reisedatenbank v1.0</h1>
+    <a href="/tripdb/">zurück</a>
+    <hr>
+    {% for trip in trips %}
+    <span>{{ trip.start_date|date:'Y-m' }} {{ trip.name }}</span><br>
+    {% endfor %}
+    <hr>
+    <p>Markus Reichenbach, Januar 2022</p>
+</body>
+</html>

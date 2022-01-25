@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tripdb import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.welcome, name='welcome'),
+    path('tripdb/', views.welcome, name='welcome'),
+    path('tripdb/trip_overview/', views.trip_overview, name='trip-overview'),
 ]
