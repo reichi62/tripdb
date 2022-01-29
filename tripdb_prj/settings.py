@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from pathlib import Path
 import environ
+import os
 
 env = environ.Env(
     # set casting, default value
@@ -83,10 +84,16 @@ WSGI_APPLICATION = 'tripdb_prj.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, '.mysql.conf'),
+        },
+    },
 }
 
 
